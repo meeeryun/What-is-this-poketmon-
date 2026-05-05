@@ -24,9 +24,9 @@ This project evaluates and compares the performance of various CNN architectures
 | Model Name | Training Mode | Final Loss | 
 | :--- | :---: | :---: |
 | **AlexNet** | Scratch  | 5.1221 | 
-| **ResNet18** | Pre-trained  | 0.0364 | 
-| **VGG16** | Pre-trained | - | 
-| **MobileNetV2** | Pre-trained | - |
+| **ResNet18** | Pre-trained  | 1.8240 | 
+| **VGG16** | Pre-trained | 2.1055 | 
+| **MobileNetV2** | Pre-trained | 1.9580 |
 
 ### "Unexpected Performance of ResNet18"
 
@@ -36,3 +36,10 @@ This could be attributed to a 'Domain Gap' between the pre-trained ImageNet weig
 
 Furthermore, the small number of samples per class (20 images) might have hindered the model's ability to fine-tune its deep residual layers effectively within a limited time frame.
 <img width="808" height="1062" alt="image" src="https://github.com/user-attachments/assets/59e1d664-4b67-44c6-bfae-84902883d081" />
+
+
+이번 과제도 성능 자체로 힘듦이 있어 최대한 데이터셋을 줄이고 줄여 150 클래스 X 20장 써서 3000 클래스로 완성하여 작동 시켜봤습니다.
+
+
+
+
