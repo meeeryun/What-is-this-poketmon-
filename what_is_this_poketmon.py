@@ -67,7 +67,7 @@ def get_mobilenet(num_classes):
 
 # Settings and Data load
 st.set_page_config(page_title="Vision Experiment Dashboard", layout="wide")
-st.title("🔬 Multi-Backbone Classifier Experiment")
+st.title("Multi-Backbone Classifier Experiment")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -85,7 +85,7 @@ def prepare_data(data_path):
     return train_db, test_db, dataset.classes
 
 # Choose models and parameter in streamlit
-st.sidebar.header("⚙️ Settings")
+st.sidebar.header("Settings")
 backbone_name = st.sidebar.selectbox("Select Backbone", ["AlexNet", "ResNet18", "VGG16", "MobileNetV2"])
 data_folder = st.sidebar.text_input("Dataset Folder Path", value="./mini_dataset")
 epochs = st.sidebar.slider("Epochs", 1, 20, 5)
@@ -118,7 +118,7 @@ with tab1:
         criterion = nn.CrossEntropyLoss()
         optimizer = optim.Adam(model.parameters(), lr=0.001)
         
-        status = st.status(f"🚀 {backbone_name} Learning...", expanded=True)
+        status = st.status(f"{backbone_name} Learning...", expanded=True)
         progress_bar = st.progress(0)
         
         for epoch in range(epochs):
@@ -137,7 +137,7 @@ with tab1:
                     print(f"[{backbone_name}] Ep {epoch+1}, Step {i}, Loss: {loss.item():.4f}")
 
             avg_loss = running_loss / len(train_loader)
-            status.update(label=f"✅ Epoch {epoch+1} Compelte (Loss: {avg_loss:.4f})", state="running")
+            status.update(label=f"Epoch {epoch+1} Compelte (Loss: {avg_loss:.4f})", state="running")
             progress_bar.progress((epoch + 1) / epochs)
         
         save_name = f"{backbone_name.lower()}_model.pth"
